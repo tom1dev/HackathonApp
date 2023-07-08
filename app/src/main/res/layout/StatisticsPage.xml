@@ -14,8 +14,8 @@
         android:ems="10"
         android:inputType="text"
         android:text="Time taken: "
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="323dp" />
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="517dp" />
 
     <EditText
         android:id="@+id/editTextText2"
@@ -24,8 +24,8 @@
         android:ems="10"
         android:inputType="text"
         android:text="EXP earned: "
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="390dp" />
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="584dp" />
 
     <EditText
         android:id="@+id/editTextText3"
@@ -34,8 +34,8 @@
         android:ems="10"
         android:inputType="text"
         android:text="Area enclosed: "
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="455dp" />
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="649dp" />
 
     <Button
         android:id="@+id/button2"
@@ -44,5 +44,23 @@
         android:text="Button"
         tools:layout_editor_absoluteX="460dp"
         tools:layout_editor_absoluteY="671dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Again"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="762dp" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Path length: "
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="697dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
