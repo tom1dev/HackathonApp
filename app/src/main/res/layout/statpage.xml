@@ -5,56 +5,157 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundStatACtivity">
+
+
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       >
+        android:id="@+id/layoutGood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
 
         <TextView
             android:id="@+id/detailstxtbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:text="@string/good_job"
-            android:textSize="35sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:layout_centerHorizontal='true'
+            android:layout_marginStart="28dp"
             android:layout_marginTop="175dp"
-            />
+            android:text="@string/good_job"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textSize="35sp"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/layoutscore"
+        app:layout_constraintTop_toBottomOf="@+id/layoutGood">
+
         <TextView
             android:id="@+id/Score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/score"
-            android:textSize="30sp"
-            android:layout_below="@id/detailstxtbox"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:layout_marginTop="20dp"
+            android:text="@string/score"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:paddingRight="10dp"/>
 
-            android:layout_centerHorizontal='true'/>
         <TextView
+            android:id="@+id/numScore"
+            android:layout_toRightOf="@id/Score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="1944"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/layoutarea"
+        app:layout_constraintTop_toBottomOf="@+id/layoutscore">
+
+        <TextView
+            android:textColor="@color/black"
             android:id="@+id/Area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/distance"
-            android:textSize="30sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:layout_below="@id/Score"
-            android:layout_centerHorizontal='true'
+
             android:layout_marginTop="20dp"
-            />
+            android:text="@string/distance"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textSize="30sp" android:paddingRight="10dp"/>
+
         <TextView
+            android:id="@+id/numArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/Area"
+            android:text="1944"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/layoutdistance"
+        app:layout_constraintTop_toBottomOf="@+id/layoutarea"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:textColor="@color/black"
             android:id="@+id/Distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/area"
-            android:textSize="30sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:layout_below="@id/Area"
-            android:layout_centerHorizontal='true'
             android:layout_marginTop="20dp"
-            />
+            android:text="@string/area"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textSize="30sp"
+            android:paddingRight="10dp"/>
+
+        <TextView
+            android:id="@+id/numDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/Distance"
+            android:text="1944"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
     </RelativeLayout>
+
+
+    <RelativeLayout
+        app:layout_constraintTop_toBottomOf="@+id/layoutdistance"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/layoutPlayAgain"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/NextButtonStatPg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/roundedrectangle"/>
+        <TextView
+            android:textColor="@color/darkGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Again"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+
 
 
 
