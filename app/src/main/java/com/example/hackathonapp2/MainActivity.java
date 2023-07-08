@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+
 public class MainActivity extends AppCompatActivity {
+    public static final int REQUEST_CODE_ADD_NOTE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView startButton = findViewById(R.id.StartTrail);
         ImageView stopButton = findViewById(R.id.StopTrail);
         stopButton .setVisibility(View.GONE);
+        startButton .setVisibility(View.VISIBLE);
 
         //start button press
         startButton.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 stopButton .setVisibility(View.GONE);
                 startButton.setVisibility(View.VISIBLE);
+                startActivityForResult(
+                        new Intent(getApplicationContext(), StatisiticsActivitity.class),REQUEST_CODE_ADD_NOTE
+                );
+
 
             }
 
