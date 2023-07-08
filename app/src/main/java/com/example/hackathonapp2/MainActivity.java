@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
                 stopButton.setVisibility(View.VISIBLE);
                 startButton.setVisibility(View.GONE);
             }
