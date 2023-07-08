@@ -33,6 +33,8 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.ArrayList;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 
 
@@ -49,6 +51,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     //variable for googlemap
 
     private GoogleMap myMap;
+
+    private Polyline polyline;
+
+    private PolylineOptions polylineOptions = new PolylineOptions();
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -122,9 +128,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                     public void onTick(long millisUntilFinished) {
-                        if(pollingcount[0] == 30){
+                        if(pollingcount[0] == 5){
                             pollingcount[0] = 0;
-                            
+                            // Instantiates a new Polyline object and adds points to define a rectangle
+                            polylineOptions.add(getCurrentLocation());
+                            polyline = myMap.addPolyline(polylineOptions);
                         }
 
                         long seconds = millisUntilFinished / 1000;
@@ -183,7 +191,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    public void getCurrentLocation() {
+    public LatLng getCurrentLocation() {
+        final LatLng[] latLng = new LatLng[1];
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -192,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            return;
+            return null;
         }
         Task<Location> task = fusedLocationProviderClient.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
@@ -202,15 +211,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     @Override
                     public void onMapReady(@NonNull GoogleMap googleMap) {
                         if (location != null) {
-                            LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
-                            MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("Current Location !");
+                            latLng[0] = new LatLng(location.getLatitude(),location.getLongitude());
+                            MarkerOptions markerOptions = new MarkerOptions().position(latLng[0]).title("Current Location !");
                             googleMap.addMarker(markerOptions);
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng[0],15));
                         }
                     }
                 });
             }
         });
+        return latLng[0];
     }
 
     @Override
