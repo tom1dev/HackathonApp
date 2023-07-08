@@ -5,56 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundStatACtivity">
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       >
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="60dp">
 
         <TextView
             android:id="@+id/detailstxtbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:text="@string/good_job"
-            android:textSize="35sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:layout_centerHorizontal='true'
+            android:layout_marginStart="28dp"
             android:layout_marginTop="175dp"
-            />
+            android:text="@string/good_job"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textSize="35sp" />
+
         <TextView
             android:id="@+id/Score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/score"
-            android:textSize="30sp"
             android:layout_below="@id/detailstxtbox"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:layout_centerHorizontal='true'
             android:layout_marginTop="20dp"
+            android:text="@string/score"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
 
-            android:layout_centerHorizontal='true'/>
+            android:textSize="30sp" />
+
         <TextView
             android:id="@+id/Area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/distance"
-            android:textSize="30sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:layout_below="@id/Score"
             android:layout_centerHorizontal='true'
             android:layout_marginTop="20dp"
-            />
+            android:text="@string/distance"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textSize="30sp" />
+
         <TextView
             android:id="@+id/Distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/area"
-            android:textSize="30sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:layout_below="@id/Area"
             android:layout_centerHorizontal='true'
             android:layout_marginTop="20dp"
-            />
+            android:text="@string/area"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textSize="30sp" />
+
+
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/NextButtonStatPg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/roundedrectangle"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+
 
 
 
