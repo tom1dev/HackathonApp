@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#89CFF0"
     tools:context=".MainActivity">
 
     <EditText
@@ -13,8 +14,8 @@
         android:ems="10"
         android:inputType="text"
         android:text="Time taken: "
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="430dp" />
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="323dp" />
 
     <EditText
         android:id="@+id/editTextText2"
@@ -23,8 +24,8 @@
         android:ems="10"
         android:inputType="text"
         android:text="EXP earned: "
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="488dp" />
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="390dp" />
 
     <EditText
         android:id="@+id/editTextText3"
@@ -32,9 +33,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text=""
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="547dp" />
+        android:text="Area enclosed: "
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="455dp" />
 
     <Button
         android:id="@+id/button2"
