@@ -22,6 +22,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".StepsActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
         </activity>
@@ -33,6 +37,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/my_map_api_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

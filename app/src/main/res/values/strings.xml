@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">hackathonapp2</string>
-    <string name="bulleted_text">• First item\n• Second item\n• Third item</string>
     <string name="good_job">Good Job</string>
     <string name="score">Score:</string>
     <string name="distance">Distance:</string>
     <string name="area">Area:</string>
+    Press the green button to start your travel.
+
+    <string name="text_to_change">Press the green button to start\n your travel.</string>
 
     <string name="my_map_api_key">AIzaSyCBjhU0yc9kg9ghRqDBCiB9v8Z8Q1ZnABU</string>
 
