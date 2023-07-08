@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">hackathonapp2</string>
     <string name="bulleted_text">• First item\n• Second item\n• Third item</string>
+    <string name="good_job">Good Job</string>
+    <string name="score">Score:</string>
+    <string name="distance">Distance:</string>
+    <string name="area">Area:</string>
 
 
 </resources>
