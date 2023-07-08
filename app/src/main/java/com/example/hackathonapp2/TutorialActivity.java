@@ -14,7 +14,7 @@ public class TutorialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutorial);
-        Button btn = (Button)findViewById(R.id.supabutton);
+        Button btn = (Button)findViewById(R.id.next);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

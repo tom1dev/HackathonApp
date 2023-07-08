@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context=".MainActivity"
-    android:background="@color/darkGreen">
+    android:background="@drawable/background">
 
 
     <LinearLayout
@@ -18,22 +18,37 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp">
 
-        <ImageView
-            android:layout_width="253dp"
-            android:layout_height="218dp"
-            android:src="@drawable/textbubble" />
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:background="@drawable/textbubble"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp">
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="155dp"
+                android:gravity="center"
+                android:text="Go out and cover\n as much area\n as you can!"
+                android:textSize="30dp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
 
         <ImageView
             android:layout_width="205dp"
             android:layout_height="294dp"
-            android:layout_marginBottom="20sp"
+            android:layout_marginBottom="10sp"
             android:src="@drawable/person" />
 
         <Button
-            android:id="@+id/supabutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="next" />
+            android:id="@+id/next"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/darkGreen"
+            android:textColor="#FFFF"
+            android:text="NEXT" />
 
     </LinearLayout>
 
