@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private String area="2M^2";
     private String score="3";
 
+    private DataBase Db;
+
     //variable for googlemap
 
     private GoogleMap myMap;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         ImageView stopButton = findViewById(R.id.StopTrail);
         TextView counter = findViewById(R.id.timer);
         ImageView counterbox = findViewById(R.id.TimerBox);
+
+        Db = new DataBase(MainActivity.this);
 
         //sets initial visibility for objects
         counterbox.setVisibility(View.GONE);
@@ -106,10 +110,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 stopButton.setVisibility(View.GONE);
                 startButton.setVisibility(View.VISIBLE);
+
+                Db.addDATA(0,0,0);
+
+                ArrayList<String> data = Db.getDATA();
                 Intent i = new Intent(getApplicationContext(), StatisiticsActivitity.class);
 
                 i.putExtra("key", stats);
                 startActivity(i);
+
+
+
             }
 
         });
