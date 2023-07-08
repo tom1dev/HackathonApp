@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE_ADD_NOTE = 1;
-    private ArrayList<String> stats;
-    private String distance;
-    private String area;
-    private String score;
+    private ArrayList<String> stats = new ArrayList<String>();
+    private String distance ="1";
+    private String area="2";
+    private String score="3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,6 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#F0312E</color>
     <color name="green">#0da100</color>
-
+    <color name="backgroundStatACtivity">#89CFF0</color>
     <color name="darkGreen">#1A7512</color>
 </resources>
