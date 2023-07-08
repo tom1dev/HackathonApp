@@ -116,15 +116,22 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 stopButton.setVisibility(View.VISIBLE);
                 startButton.setVisibility(View.GONE);
 
+                final int[] pollingcount = {0};
                 //count down timer
                 new CountDownTimer(3600000, 1000) {
 
 
                     public void onTick(long millisUntilFinished) {
+                        if(pollingcount[0] == 30){
+                            pollingcount[0] = 0;
+                            
+                        }
+
                         long seconds = millisUntilFinished / 1000;
                         int minutes = Math.round(seconds / 60);
                         seconds = seconds - minutes * 60;
                         counter.setText(Integer.toString(minutes) + ":" + Long.toString(seconds));
+                        pollingcount[0] +=1;
                     }
 
                     //if timer reaches 0 move to stats page
