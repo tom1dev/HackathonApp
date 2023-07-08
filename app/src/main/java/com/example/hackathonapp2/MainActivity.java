@@ -35,12 +35,18 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
-    public static final int REQUEST_CODE_ADD_NOTE = 1;
+
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+    //variables for stats
+
     private ArrayList<String> stats = new ArrayList<String>();
     private String distance = "1M";
     private String area = "2M^2";
     private String score = "3";
+
+    private DataBase Db;
+
+    //variable for googlemap
 
     private GoogleMap myMap;
     SupportMapFragment supportMapFragment;
@@ -50,9 +56,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //variables for stop/start/timer
         ImageView startButton = findViewById(R.id.StartTrail);
         ImageView stopButton = findViewById(R.id.StopTrail);
+        TextView counter = findViewById(R.id.timer);
+        ImageView counterbox = findViewById(R.id.TimerBox);
+
+        Db = new DataBase(MainActivity.this);
 
         stopButton.setVisibility(View.GONE);
         startButton.setVisibility(View.VISIBLE);
@@ -78,7 +90,18 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).check();
 
-        TextView counter = findViewById(R.id.timer);
+        //sets initial visibility for objects
+        counterbox.setVisibility(View.GONE);
+        stopButton .setVisibility(View.GONE);
+        startButton .setVisibility(View.VISIBLE);
+        counter.setVisibility(View.GONE);
+
+        //initialises google map
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+
+
 
 
         //start button press
@@ -86,9 +109,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                //changes to correct visablity
+                counter.setVisibility(View.VISIBLE);
+                counterbox.setVisibility(View.VISIBLE);
 
                 stopButton.setVisibility(View.VISIBLE);
                 startButton.setVisibility(View.GONE);
+
+                //count down timer
                 new CountDownTimer(3600000, 1000) {
 
 
@@ -99,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                         counter.setText(Integer.toString(minutes) + ":" + Long.toString(seconds));
                     }
 
+                    //if timer reaches 0 move to stats page
                     public void onFinish() {
                         stats.add(score);
                         stats.add(distance);
@@ -120,6 +149,8 @@ public class MainActivity extends AppCompatActivity {
         });
         //stop Button Press
         stopButton.setOnClickListener(new View.OnClickListener() {
+
+            //moves to stats page
             @Override
             public void onClick(View v) {
                 stats.add(score);
@@ -128,10 +159,17 @@ public class MainActivity extends AppCompatActivity {
 
                 stopButton.setVisibility(View.GONE);
                 startButton.setVisibility(View.VISIBLE);
+
+                Db.addDATA(0,0,0);
+
+                ArrayList<String> data = Db.getDATA();
                 Intent i = new Intent(getApplicationContext(), StatisiticsActivitity.class);
 
                 i.putExtra("key", stats);
                 startActivity(i);
+
+
+
             }
 
         });
