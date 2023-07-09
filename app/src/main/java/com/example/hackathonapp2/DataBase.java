@@ -1,5 +1,7 @@
 package com.example.hackathonapp2;
 
+import static android.icu.text.MessagePattern.ArgType.SELECT;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -52,6 +54,13 @@ public class DataBase extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
+    public boolean isEmpty(){
+        SQLiteDatabase db =this.getWritableDatabase();
+        String selectQuery = "SELECT  * FROM " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        cursor.moveToLast();
+        return (cursor.getCount() == 0);
+    }
     public ArrayList<String> getDATA(){
         SQLiteDatabase db =this.getWritableDatabase();
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
@@ -63,9 +72,6 @@ public class DataBase extends SQLiteOpenHelper {
         lastline.add(cursor.getString(1));
         lastline.add(cursor.getString(2));
         lastline.add(cursor.getString(3));
-
-
-
 
         return lastline;
     }

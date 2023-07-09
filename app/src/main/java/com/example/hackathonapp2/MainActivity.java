@@ -38,13 +38,12 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
     //variables for stats
-
+    private ArrayList<String> previousStat;
     private ArrayList<String> stats = new ArrayList<String>();
-    private String distance = "1M";
-    private String area = "2M^2";
-    private String score = "3";
+    private String distance = "1";
+    private String area="2";
+    private String score="3";
 
-    private DataBase Db;
 
     //variable for googlemap
 
@@ -64,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         TextView counter = findViewById(R.id.timer);
         ImageView counterbox = findViewById(R.id.TimerBox);
 
-        Db = new DataBase(MainActivity.this);
 
         stopButton.setVisibility(View.GONE);
         startButton.setVisibility(View.VISIBLE);
@@ -124,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void onTick(long millisUntilFinished) {
                         if(pollingcount[0] == 30){
                             pollingcount[0] = 0;
-                            
+
                         }
 
                         long seconds = millisUntilFinished / 1000;
@@ -167,9 +165,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 stopButton.setVisibility(View.GONE);
                 startButton.setVisibility(View.VISIBLE);
 
-                Db.addDATA(0,0,0);
-
-                ArrayList<String> data = Db.getDATA();
                 Intent i = new Intent(getApplicationContext(), StatisiticsActivitity.class);
 
                 i.putExtra("key", stats);
