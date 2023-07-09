@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -46,9 +47,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     //variables for stats
     private ArrayList<String> previousStat;
     private ArrayList<String> stats = new ArrayList<String>();
-    private String distance = "1";
-    private String area="2";
-    private String score="3";
+    private String distance = "1000";
+    private String area="200";
+    private String score="300000";
     private int coordinatesIndex = 0;
 
     private Polyline polyline;
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                     public void onTick(long millisUntilFinished) {
-                        if(pollingcount[0] == 5){
+                        if(pollingcount[0] == 2){
                             pollingcount[0] = 0;
                             if (coordinatesIndex<9) {
                                 coordinatesIndex++;
@@ -238,13 +239,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             googleMap.addMarker(markerOptions);
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
                             if (coordinatesIndex < 9) {
-                                polylineOptions.add(coordinates.get(coordinatesIndex));
+                                polylineOptions.add(coordinates.get(coordinatesIndex)).color(Color.BLUE);
                                 polyline = googleMap.addPolyline(polylineOptions);
                             }
                             if (coordinatesIndex == 9) {
                                 for (int i = 0; i < 9; i++) {
                                     polygonOptions.add(polygonCoordinates.get(i));
                                 }
+                                polygonOptions = polygonOptions.fillColor(Color.BLUE);
                                 polygon = googleMap.addPolygon(polygonOptions);
 
                             }
