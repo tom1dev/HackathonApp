@@ -53,7 +53,7 @@
             android:textColor="#FFFF"
             android:textSize="20dp"
             android:fontFamily="@font/poppins"
-            android:text="next" />
+            android:text="Next" />
 
     </LinearLayout>
 
