@@ -24,18 +24,17 @@
 
             <TextView
                 android:layout_width="350dp"
-                android:layout_height="150dp"
+                android:layout_height="160dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:gravity="start|center"
-                android:text="Welcome!   Allow Path.io to access your device's location?
-
-  Path.io needs access to your location to draw paths and calculate scores based on the trail you walk. This feature will allow us to provide you with an interactive and engaging gaming experience.Granting location permission will enhance your gameplay and enable us to accurately track your movement on the map.
-
-Granting location permission will enhance your experience and improve the functionality of the app. Your location data will be used solely for the purpose of calculating your in-game scores and will not be shared with any third parties or used for any other purposes. We value your privacy and assure you that your location information will be handled securely. Please review our Privacy Policy for more details."
+                android:gravity="center"
+                android:text="Welcome! Allow Path.io to access your device's location?
+\nPath.io needs access to your location to draw paths and calculate scores based on the trail you walk. This feature will allow us to provide you with an interactive and engaging gaming experience.Granting location permission will enhance your gameplay and enable us to accurately track your movement on the map.
+\nGranting location permission will enhance your experience and improve the functionality of the app. Your location data will be used solely for the purpose of calculating your in-game scores and will not be shared with any third parties or used for any other purposes. We value your privacy and assure you that your location information will be handled securely. Please review our Privacy Policy for more details."
                 android:textColor="@color/black"
-                android:textSize="10dp"
+                android:textSize="9.7dp"
+                android:fontFamily="@font/poppins"
                 tools:ignore="TextSizeCheck" />
 
         </LinearLayout>
@@ -55,6 +54,7 @@ Granting location permission will enhance your experience and improve the functi
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:backgroundTint="@color/darkGreen"
+                android:fontFamily="@font/poppins"
                 android:text="Accept" />
 
             <Button
@@ -63,6 +63,7 @@ Granting location permission will enhance your experience and improve the functi
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:backgroundTint="@color/darkGreen"
+                android:fontFamily="@font/poppins"
                 android:text="Reject" />
         </LinearLayout>
 
