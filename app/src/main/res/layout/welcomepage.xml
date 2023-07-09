@@ -1,0 +1,71 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".firstPage"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        tools:layout_editor_absoluteX="-61dp"
+        tools:layout_editor_absoluteY="-36dp">
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="250dp"
+            android:background="@drawable/textbubble"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="350dp">
+
+            <TextView
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:gravity="start|center"
+                android:text="Welcome!   Allow Path.io to access your device's location?
+
+  Path.io needs access to your location to draw paths and calculate scores based on the trail you walk. This feature will allow us to provide you with an interactive and engaging gaming experience.Granting location permission will enhance your gameplay and enable us to accurately track your movement on the map.
+
+Granting location permission will enhance your experience and improve the functionality of the app. Your location data will be used solely for the purpose of calculating your in-game scores and will not be shared with any third parties or used for any other purposes. We value your privacy and assure you that your location information will be handled securely. Please review our Privacy Policy for more details."
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                tools:ignore="TextSizeCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/acceptButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Accept" />
+
+            <Button
+                android:id="@+id/rejectButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/darkGreen"
+                android:text="Reject" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
