@@ -39,8 +39,8 @@ public class StatisiticsActivitity extends AppCompatActivity {
             this.xp = 0;
         }else{
             ArrayList<String> temp = Db.getDATA();
-            xp = Integer.parseInt((String)temp.get(1));
-            level = Integer.parseInt((String)temp.get(2));
+            xp = Integer.parseInt((String)temp.get(0));
+            level = Integer.parseInt((String)temp.get(1));
         }
 
         Bundle extras = getIntent().getExtras();
@@ -67,7 +67,7 @@ public class StatisiticsActivitity extends AppCompatActivity {
 
         this.area = Integer.parseInt((String)stats.get(2));
 
-        expCount(1000);
+        expCount(score);
 
 
         NextButton.setOnClickListener(new View.OnClickListener() {
@@ -83,8 +83,8 @@ public class StatisiticsActivitity extends AppCompatActivity {
 
     }
 
-    public void expCount(int score){
-        final int[] xpgotten = {(int) Math.round(score * 0.015)};
+    public void expCount(int scoret){
+        final int[] xpgotten = {(int) Math.round(scoret * 0.015)};
         final int[] xpneeded = {100 + (level - 1) * 10};
 
         xpneeded[0] += -xp;
@@ -100,14 +100,14 @@ public class StatisiticsActivitity extends AppCompatActivity {
                 xpgotten[0] +=-1;
                 xpneeded[0] +=-1;
 
-                if(xpneeded[0] ==0){
+                if(xpneeded[0] <=0){
 
                     level++;
                     levelTV.setText("Level: " + Integer.toString(level));
                     xpneeded[0] = 100 + (level-1)*10;
                     xpPG.setProgress(0);
                 }
-                if(xpgotten[0] ==0 ){
+                if(xpgotten[0] <=0 ){
                     Db.addDATA(xp,level,score);
                     cancel();
 
