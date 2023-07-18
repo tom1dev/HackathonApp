@@ -12,10 +12,12 @@ public class firstPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //sets the welcome page as the first activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcomepage);
 
         Button acceptButton = findViewById(R.id.acceptButton);
+        //if the 'accept button is clicked change the activity to the first tutorial page.
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

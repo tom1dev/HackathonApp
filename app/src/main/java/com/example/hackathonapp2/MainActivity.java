@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Polyline polyline;
     private Polygon polygon;
-
+    //creates the nessisary route for haxathon demo
     private ArrayList<LatLng> polygonCoordinates = new ArrayList<LatLng>(Arrays.asList(new LatLng(-36.85270558515427, 174.76956760897124),new LatLng(-36.85196257012271, 174.7702683177463),
             new LatLng(-36.85162775114063, 174.76938318879093), new LatLng(-36.85135302677802, 174.7685248819251),
             new LatLng(-36.851953985038925, 174.76821911010416), new LatLng(-36.852645081198524, 174.76745199834284), new LatLng(-36.85321598200912, 174.76787042293995),
@@ -93,9 +93,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         TextView counter = findViewById(R.id.timer);
         ImageView counterbox = findViewById(R.id.TimerBox);
 
-
+        //INITALISES THE Stop button as invisible and makes the start button visable
         stopButton.setVisibility(View.GONE);
         startButton.setVisibility(View.VISIBLE);
+
+
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         fusedLocationProviderClient = (FusedLocationProviderClient) LocationServices.getFusedLocationProviderClient(this);
 
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 }).check();
 
-        //sets initial visibility for objects
+        //sets initial visibility for buttons
         counterbox.setVisibility(View.GONE);
         stopButton .setVisibility(View.GONE);
         startButton .setVisibility(View.VISIBLE);
@@ -137,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onClick(View v) {
-                //changes to correct visablity
+                //changes buttons to correct visablity
                 counter.setVisibility(View.VISIBLE);
                 counterbox.setVisibility(View.VISIBLE);
 
@@ -145,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startButton.setVisibility(View.GONE);
 
                 final int[] pollingcount = {0};
-                //count down timer
+                //starts a countdown timer that also polls for new location data after a set amount of ticks
                 new CountDownTimer(3600000, 1000) {
 
 
@@ -195,12 +197,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             //moves to stats page
             @Override
             public void onClick(View v) {
+                //inputs the correct data into an arraylist
                 stats.add(score);
                 stats.add(distance);
                 stats.add(area);
 
+
+                //sets the buttons to correct visiblity
                 stopButton.setVisibility(View.GONE);
                 startButton.setVisibility(View.VISIBLE);
+
+                //send the arrayList to the stats activity when stop button is pressed.
 
                 Intent i = new Intent(getApplicationContext(), StatisiticsActivitity.class);
 
@@ -215,7 +222,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+    //gets the users current location if location permission is not allready given asks for it.s
     public void getCurrentLocation() {
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
